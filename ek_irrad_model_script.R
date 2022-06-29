@@ -104,7 +104,8 @@ TukeyHSD(ulva_ek_irrad_model_aov, "Temperature", ordered = FALSE)
 plot(allEffects(ek_irrad_model_noint_ulva))
 
 #plot a regression between the photosynthetic independent variables of interest and growth rate
-ulva_growth_irrad_ek_graph <- ggplot(ulva, aes(x=irradiance_over_ek, y=growth_rate)) + geom_point() + 
+ulva_growth_irrad_ek_graph <- ggplot(ulva, aes(x=irradiance_over_ek, y=growth_rate)) + 
+        geom_point(alpha = 0.5, size = 3, aes(color = Treatment), show.legend = TRUE) + 
         geom_smooth(method = "lm", col = "black") + theme_bw() + 
         labs(title = "Ulva lactuca Minutes above Ek vs Growth Rate", x = "Minutes above Ek", 
              y = "growth rate (%)") + stat_regline_equation(label.x = 25, label.y = 165) + stat_cor()
@@ -156,7 +157,8 @@ games_howell_test(hypnea, irradiance_over_ek ~ Temperature, conf.level = 0.95, d
 plot(allEffects(ek_irrad_model_noint_hypnea))
 
 #plot a regression between the photosynthetic independent variables of interest and growth rate
-hypnea_growth_irrad_ek_graph <- ggplot(hypnea, aes(x=irradiance_over_ek, y=growth_rate)) + geom_point() + 
+hypnea_growth_irrad_ek_graph <- ggplot(hypnea, aes(x=irradiance_over_ek, y=growth_rate)) + 
+        geom_point(alpha = 0.5, size = 3, aes(color = Treatment), show.legend = TRUE) + 
         geom_smooth(method = "lm", col = "black") + theme_bw() + 
         labs(title = "Hypnea musciformis Minutes above Ek vs Growth Rate", x = "Minutes above Ek", y = "growth rate (%)") + 
         stat_regline_equation(label.y = 155) + stat_cor(label.y = 145)
